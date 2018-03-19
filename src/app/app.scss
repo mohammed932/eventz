@@ -14,3 +14,50 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+.toolbar-background-ios{
+    background: #ed0d17;
+}
+.toolbar-title-ios{
+    color: white;
+}
+.gray{
+    color: gray;
+}
+.red{
+    color: red;
+}
+.ion-ios-arrow-back:before{
+    color: white
+}
+.grid-wrapper{
+    padding: 8px;
+    background: white;
+}
+
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default{
+    color: white;
+}
+
+#notification-button {            
+    position: relative;
+    width: 42px;
+    top:1px;
+    right: 1px;
+    overflow: visible!important;
+}
+
+
+#notifications-badge {
+    background-color: #d9d951;
+    position: absolute;
+    top: -3px;
+    color: red;
+    right: -3px;
+    border-radius: 100%;
+}
+.noti{
+    display: flex;
+    direction: rtl;
+}

@@ -23,7 +23,9 @@ $app-direction: ltr;
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
 
-
+$background-ios-color: #f3f3f3;
+$background-md-color: #f3f3f3;
+$background-wp-color: #f3f3f3;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -35,7 +37,7 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #488aff,
-  secondary:  #32db64,
+  secondary:  #3fb061,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222

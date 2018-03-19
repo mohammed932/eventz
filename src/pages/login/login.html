@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar></ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+
+    <ion-row class="input-wrapper">
+      <ion-input type="text" placeholder="Email"></ion-input>
+      <img src="assets/imgs/mail.svg" class="mail-img">
+    </ion-row>
+
+    <ion-row class="input-wrapper margin">
+      <ion-input type="password" placeholder="password"></ion-input>
+      <img src="assets/imgs/locked.svg" class="locked-img">
+    </ion-row>
+
+    <ion-row>
+      <button class="login-btn" (click)="login()" ion-button color="secondary">Sign In</button>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <div class="social-media-wrapper">
+          <img src="assets/imgs/facebook.svg" class="social-media-icon fb">
+          <img src="assets/imgs/twitter.svg" class="social-media-icon">
+          <img src="assets/imgs/gmail.svg" class="social-media-icon">
+          <img src="assets/imgs/linkedin.svg" class="social-media-icon">
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <div text-center class="forget-password">forget Password?</div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <!-- <div padding>
+    <button ion-button color="secondary" block>Sign In</button>
+  </div> -->
+
+</ion-content>

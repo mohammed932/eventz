@@ -1,0 +1,23 @@
+page-registration {
+    .toolbar-background-ios{
+        background: none;
+    }
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+        border-style: none;
+    }
+    .input-wrapper{
+        border-bottom: 1px solid #c8c8c8;
+        position: relative;
+        margin-bottom: 3rem;
+    }
+    .text-input-ios{
+        padding: 9px;
+    }
+    .btn{
+        color: gray;
+        border-color: #252323;
+        width: 42%;
+        display: block;
+        float: right;
+    }
+}

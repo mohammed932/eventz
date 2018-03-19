@@ -1,0 +1,33 @@
+page-intro {
+    .toolbar-background-ios{
+        background: none;
+    }
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+        border-style: none;
+    }
+    .map-marker{
+        margin: auto;
+        margin-top: 2rem;
+        width: 33%;
+    }
+    .select-town{
+        margin: auto;
+        margin-bottom: 2rem;
+        width: 90%;
+        border: 1px solid #cb1f1f;
+        margin-top: -1rem;
+        max-width: 100%;
+    }
+    .location-marker{
+        width: 20%;
+        height: 40px;
+    }
+    .your-location-txt{
+        font-size: 1.8rem;
+        margin-top: 1rem;
+    }
+    .next-btn{
+        width: 100%;
+        margin-top: 3rem;
+    }
+}

@@ -1,0 +1,13 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>notifications</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <event-card [type]="type" *ngFor="let noti of Notifications"></event-card>
+</ion-content>

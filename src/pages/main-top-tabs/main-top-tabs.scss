@@ -1,0 +1,14 @@
+page-main-top-tabs {
+    .tabs-ios .tabbar{
+        background: #6094bc;
+    }
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon{
+        color: white;
+    }
+    .tabs-ios .tab-button-icon{
+        color: white;   
+    }
+    .tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true]{
+        background: #344b5b;
+    }
+}

@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="ticket_type == 'free'">Free Tickets</ion-title>
+    <ion-title *ngIf="ticket_type == 'myTickets'">My Tickets</ion-title>
+    <ion-title *ngIf="ticket_type == 'paymentSetting'">Payment Setting</ion-title>
+    <ion-title *ngIf="ticket_type == 'ticketsCart'">Ticket Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid class="grid-wrapper">
+
+    <event-card [type]="ticket_type" *ngFor="let ticket of Tickets" (click)="goToDetails()"></event-card>
+
+  </ion-grid>
+
+</ion-content>

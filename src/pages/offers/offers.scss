@@ -1,0 +1,28 @@
+page-offers {
+    .event-title{
+        color: red;
+        font-size: 1.6rem;
+        margin-top: 0;
+    }
+    .calender{
+        width: 16%;
+    }
+    .heart-img{
+        width: 63%;
+        float: right;
+        margin-right: 0.8rem;
+        margin-top: 1rem;
+    }
+    .start-date{
+        display: inline-block;
+        font-size: 1rem;
+        position: absolute;
+        top: 63%;
+        left: 22%;
+        color: gray;
+    }
+    .offer-col{
+        border: 1px solid #bbb8b8;
+        margin-bottom: 1rem;
+    }
+}

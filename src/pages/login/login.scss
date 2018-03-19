@@ -1,0 +1,45 @@
+page-login {
+    .toolbar-background-ios{
+        background: none;
+    }
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+        border-style: none;
+    }
+    .input-wrapper{
+        border-bottom: 1px solid #c8c8c8;
+        position: relative;
+    }
+    .margin{
+        margin-top: 4rem;
+    }
+    .mail-img,.locked-img{
+        width: 10%;
+        position: absolute;
+        right: 0;
+    }
+    .locked-img{
+        bottom: 12%;
+    }
+    .social-media-wrapper{
+        margin-top: 15rem;
+        .social-media-icon{
+            width: 15%;
+        }
+        .fb{
+            margin-left: 18%;
+        }
+    }
+    .forget-password{
+        margin: auto;
+        margin-top: 3rem;
+        font-size: 1.5rem;
+        color: gray;
+    }
+    
+    .login-btn{
+        width: 40%;
+        margin: auto;
+        display: block;
+        margin-top: 5rem;
+    }
+}

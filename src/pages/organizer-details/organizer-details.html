@@ -1,0 +1,16 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Organizer Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="grid-wrapper">
+      <event-organizer></event-organizer>
+      <event-card *ngFor="let event of events" (click)="goToDetails()"></event-card>    
+  </ion-grid>
+</ion-content>

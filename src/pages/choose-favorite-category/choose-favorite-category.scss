@@ -1,0 +1,39 @@
+page-choose-favorite-category {
+    .toolbar-background-ios{
+        background: none;
+    }
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+        border-style: none;
+    }
+  .cat-header{
+    margin: auto;
+    font-size: 1.8rem;
+    color: gray;
+    margin-top: 2rem;
+  }
+
+  .cat-imgs-wrapper{
+    margin-top: 4rem;
+    .cat-img{
+        width: 60%;
+        margin: auto;
+        display: block;
+    }
+  }
+  .cat-title{
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+    color: gray;
+  }
+  .marginBottom{
+    margin-bottom: 2rem;
+  }
+  .my-btn{
+    display: block;
+    margin: auto;
+    border-radius: 30px;
+    height: 33px;
+    width: 70%;
+  }
+}

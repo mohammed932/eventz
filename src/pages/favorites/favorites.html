@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>favorites</ion-title>
+    <navatigation-buttons class="noti"></navatigation-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid class="segment-grid" no-padding>
+
+    <ion-segment [(ngModel)]="segmetType">
+      <ion-segment-button class="welcome" value="events">
+        Events
+      </ion-segment-button>
+      <ion-segment-button class="location" value="organizers">
+        Organizers
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-grid>
+
+
+  <div [ngSwitch]="segmetType">
+    <ion-grid class="grid1" *ngSwitchCase="'events'">
+      <event-card [type]="type" *ngFor="let event of Events"></event-card>
+    </ion-grid>
+
+
+    <ion-grid class="grid1" *ngSwitchCase="'organizers'">
+      <event-organizer class="organizer-segment" *ngFor="let organizer of Organizers"></event-organizer>
+    </ion-grid>
+
+
+  </div>
+
+</ion-content>

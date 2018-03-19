@@ -1,0 +1,36 @@
+<ion-row class="event-wrapper">
+  <ion-col col-4 class="event-img-col">
+    <img src="assets/imgs/event.jpg" class="event-img">
+  </ion-col>
+  <ion-col col-8>
+
+   
+
+    <h2 class="event-title">Name Of event</h2>
+    <h6 class="ticket-type blue" *ngIf="type =='ticketsCart'">Ticket Type</h6>
+    <h6 class="dollar" *ngIf="type =='ticketsCart'">$70</h6>
+
+
+    <div class="event-desc" *ngIf="type =='event' || type == 'free' || type == 'myTickets' || type == 'notification'">
+      description description description description description description description 
+    </div>
+
+
+    <ion-row no-padding class="calender-heart-wrapper" *ngIf="type != 'notification'">
+      <ion-col col-7 no-padding align-self-end>
+        <img src="assets/imgs/calendar.svg" class="calender">
+        <div class="start-date" [class.customLeft]="type == 'ticketsCart'">15 sep 1982 - 5:32</div>
+      </ion-col>
+      <ion-col col-5 no-padding align-self-end>
+        <div *ngIf="type == 'myTickets' ">
+          <div class="ticket-number">5</div>
+          <div class="ticket-txt">Tickets</div>
+          <div class="ticket-price">$150</div>
+        </div>
+        <button ion-button round color="danger" *ngIf="type =='ticketsCart'" class="pay-btn">Pay</button>
+        <img src="assets/imgs/heart.svg" *ngIf="type =='event' || type == 'free' " class="heart-img">
+      </ion-col>
+    </ion-row>
+
+  </ion-col>
+</ion-row>

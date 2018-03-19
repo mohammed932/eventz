@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="goToCategories()">
+        as Visitor
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <img src="assets/imgs/logo.png" class="logo">
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <div class="txt gray" text-center>Welcome To Event</div>
+      </ion-col>
+      <ion-col col-12>
+          <div class="gray" text-center>Join with Us</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+         <button class="btn marginTop" ion-button  outline (click)="Login()">Already Have Account</button>
+      </ion-col>
+      <ion-col col-12>
+          <button class="btn" ion-button  outline (click)="creatAccount()">Need New Account?</button>
+       </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

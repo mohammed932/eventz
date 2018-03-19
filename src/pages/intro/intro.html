@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button>
+        skip
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <h2>Where Do You</h2>
+      </ion-col>
+      <ion-col col-12>
+        <h2>Want to Go ?</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <img src="assets/imgs/map.svg" class="map-marker">
+    </ion-row>
+
+    <ion-row>
+      <ion-select [(ngModel)]="town" class="select-town">
+        <ion-option value=-1>Choose Town</ion-option>
+        <ion-option value=0>Ryiad</ion-option>
+        <ion-option value=1>Gada</ion-option>
+      </ion-select>
+    </ion-row>
+
+    <ion-row>
+      <img src="assets/imgs/location-marker.svg" class="location-marker">
+      <div class="your-location-txt">Use Your Location</div>
+    </ion-row>
+
+    <ion-row>
+      <button class="next-btn" (click)="nextStep()" ion-button color="secondary">Next</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

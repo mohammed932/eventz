@@ -1,0 +1,39 @@
+page-event-tickets {
+  h6,h4{
+      margin-top: 0;
+      margin-bottom: 6px;
+  }
+
+  .dollar{
+    display: inline-block;
+  }
+  .ticket-type{
+    display: inline-block;
+    padding-right: 2rem;
+    color: #03A9F4;
+  }
+  .start-date{
+    display: inline-block;
+    font-size: 1.1rem;
+    position: absolute;
+    top: 31%;
+    left: 26%;
+    color: gray;
+   }
+   .calender{
+    width: 19%;
+   }
+   .pay-col{
+       padding-top: 0;
+   }
+   .pay-btn{
+    height: 3rem;
+    float: right;
+    background-color: #f53d3d;
+   }
+
+   .ticket-grid{
+    border: 1px solid gray;
+    margin-bottom: 1rem;
+   }
+}

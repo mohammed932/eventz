@@ -1,0 +1,30 @@
+page-registration-methods {
+    .toolbar-background-ios{
+        background: none;
+    }
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+        border-style: none;
+    }
+    .logo{
+        display: block;
+        margin: auto;
+        width: 63%;
+    }
+    .btn{
+        color: gray;
+        border-color: #252323;
+        width: 75%;
+        display: block;
+        margin: auto;
+        height: 60px;
+    }
+    .marginTop{
+        margin-top: 2rem
+    }
+    .txt{
+        margin-top: 3rem;
+    }
+    .gray{
+        color: gray;
+    }
+}

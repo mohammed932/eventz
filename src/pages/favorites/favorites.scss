@@ -1,0 +1,36 @@
+page-favorites {
+
+    .segment{
+        width: 50% !important;
+        margin: auto !important;
+    }
+    .segment-ios .segment-button.segment-activated{
+        background-color: red !important;
+        color: white;
+    }
+    .segment-ios .segment-button{
+        border-color: transparent !important;
+        color: black;
+        background-color: white !important;
+    }
+
+    .grid1{
+        background: white;
+    }
+
+    .segment-ios .segment-button:first-of-type{
+        border-radius: 0 !important;
+    }
+    .segment-ios .segment-button:last-of-type{
+        border-radius: 0 !important;
+    }
+    .segment-grid{
+        margin-top: 7rem;
+    }
+   
+    .organizer-segment{
+        margin-bottom: 1rem;
+        border: 1px solid #c3c3c3;
+        margin-top: 1rem;
+    }
+}
