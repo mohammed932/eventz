@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <img src="assets/imgs/man.svg" class="user-avatar">
+        <div class="user-name">Username</div>
+        <div class="user-status">User status</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-2 offset-2>
+        <img src="assets/imgs/mail.svg" alt="">
+      </ion-col>
+      <ion-col col-8 align-self-center>
+        <div class="gray">m_test@gmail.com</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-2 offset-2>
+        <img src="assets/imgs/smartphone.svg" alt="">
+      </ion-col>
+      <ion-col col-8 align-self-center>
+        <div class="gray">0025476763728</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <button class="friend" (click)="checkFriend()" ion-button round color="primary">
+          <span *ngIf="!isFriend">Add Friend</span>
+          <span *ngIf="isFriend">UnFriend</span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

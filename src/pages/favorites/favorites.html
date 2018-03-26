@@ -2,13 +2,18 @@
 
   <ion-navbar>
     <ion-title>favorites</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle tappable class="cancel">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <navatigation-buttons class="noti"></navatigation-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
   <ion-grid class="segment-grid" no-padding>
 
@@ -25,6 +30,7 @@
 
 
   <div [ngSwitch]="segmetType">
+
     <ion-grid class="grid1" *ngSwitchCase="'events'">
       <event-card [type]="type" *ngFor="let event of Events"></event-card>
     </ion-grid>
@@ -33,7 +39,6 @@
     <ion-grid class="grid1" *ngSwitchCase="'organizers'">
       <event-organizer class="organizer-segment" *ngFor="let organizer of Organizers"></event-organizer>
     </ion-grid>
-
 
   </div>
 

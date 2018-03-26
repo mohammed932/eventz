@@ -1,5 +1,6 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -8,10 +9,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  data: any
+  constructor(public navCtrl: NavController , private authService : AuthProvider) {
+    this.intialization()
   }
 
-  
+  intialization() {
+    this.data = {
+      username: '',
+      password: ''
+    }
+  }
+
+  login(){
+     this.authService.login(this.data).subscribe( data => {
+       console.log('login response : ',data);
+     })
+  }
+
+
 
 }

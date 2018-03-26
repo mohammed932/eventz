@@ -2,6 +2,11 @@
 
   <ion-navbar>
     <ion-title>Tickets</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle tappable class="cancel">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <navatigation-buttons class="noti"></navatigation-buttons>
   </ion-navbar>
 
@@ -12,19 +17,19 @@
   <ion-grid>
     <ion-row class="tickets-row">
       <ion-col col-6 (click)="goToTickets('free')">
-        <img src="assets/imgs/art.svg" class="ticket-icon">
+        <img src="assets/imgs/plane.svg" class="ticket-icon">
         <div class="txt">Free Ticket</div>
       </ion-col>
       <ion-col col-6 (click)="goToTickets('myTickets')">
-        <img src="assets/imgs/marketing.svg" class="ticket-icon">
+        <img src="assets/imgs/ticket.svg" class="ticket-icon">
         <div class="txt">My Tickets</div>
       </ion-col>
       <ion-col col-6 (click)="goToTickets('paymentSetting')">
-        <img src="assets/imgs/science.svg" class="ticket-icon">
+        <img src="assets/imgs/payment.svg" class="ticket-icon">
         <div class="txt">Payment Sitting</div>
       </ion-col>
       <ion-col col-6 (click)="goToTickets('ticketsCart')">
-        <img src="assets/imgs/art.svg" class="ticket-icon">
+        <img src="assets/imgs/cart.svg" class="ticket-icon">
         <div class="txt">Tickets Cart</div>
       </ion-col>
     </ion-row>

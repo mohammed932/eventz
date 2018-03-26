@@ -2,6 +2,13 @@
 
   <ion-navbar>
     <ion-title>home</ion-title>
+    
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle tappable class="cancel">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
     <navatigation-buttons class="noti"></navatigation-buttons>
   </ion-navbar>
 
@@ -26,9 +33,7 @@
   </ion-grid>
 
   <ion-grid class="grid-wrapper">
-
-    <event-card [type]="type" *ngFor="let event of events" (click)="goToDetails()"></event-card>
-
+    <event-card [type]="type" *ngFor="let event of events"></event-card>
   </ion-grid>
 
 

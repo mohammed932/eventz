@@ -1,10 +1,13 @@
 <ion-row>
-  <ion-col col-4>
+  <ion-col col-4 *ngIf="type != 'follower'">
     <img src="assets/imgs/orgnaizer-img.png" class="org-img">
+  </ion-col>
+  <ion-col  *ngIf="type == 'follower'" col-4 no-padding>
+    <img src="assets/imgs/orgnaizer-img.png" class="custom-org-img">
   </ion-col>
   <ion-col col-8>
     <h4 class="org-name">Organizer Name</h4>
     <div class="org-desc gray">hello world hello world hello world hello world hello world hello world </div>
-    <button ion-button round color="primary" class="following">Following</button>
+    <button ion-button round color="primary" class="following" *ngIf="type != 'follower'">Following</button>
   </ion-col>
 </ion-row>

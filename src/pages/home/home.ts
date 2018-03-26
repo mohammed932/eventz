@@ -10,17 +10,13 @@ export class HomePage {
   events : any [] = []
   type = "event"
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    for (let i = 0; i < 10; i++)
-     this.events.push(i)
+    for (let i = 0; i < 10; i++) this.events.push(i)
   }
 
   editFavoriate(){
     this.navCtrl.push('ChooseFavoriteCategoryPage')
   }
 
-  goToDetails(){
-    this.navCtrl.push('EventDetailsPage')
-  }
 
   
 }

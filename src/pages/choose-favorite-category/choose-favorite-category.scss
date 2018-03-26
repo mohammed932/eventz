@@ -36,4 +36,12 @@ page-choose-favorite-category {
     height: 33px;
     width: 70%;
   }
+  .checkbox{
+    position: absolute;
+    right: 39px;
+    top: 8px;
+  }
+  .ion-ios-arrow-back:before{
+    color: gray !important;
+  }
 }

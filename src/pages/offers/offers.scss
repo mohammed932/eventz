@@ -22,7 +22,19 @@ page-offers {
         color: gray;
     }
     .offer-col{
-        border: 1px solid #bbb8b8;
+        position: relative;
+        &::before{
+            content: '';
+            width: calc(100% - 8px);
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 4px;
+            border: 1px solid #bbb8b8;
+        }
+        .offer-wrapper{
+            margin: 3px;
+        }
         margin-bottom: 1rem;
     }
 }

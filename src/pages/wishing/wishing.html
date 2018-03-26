@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>wishing</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="grid-wrapper">
+    <ion-row>
+      <ion-col col-1 align-self-center>
+        <img src="assets/imgs/seo-performance-marketing-graphic.svg" class="header-icon">
+      </ion-col>
+      <ion-col col-11>
+        <div class="header">Marketing</div>
+      </ion-col>
+    </ion-row>
+    <event-card [type]="type" *ngFor="let event of events"></event-card>
+
+    <ion-row style="margin-top: 1rem;">
+      <ion-col col-1 align-self-center>
+        <img src="assets/imgs/paint-palette.svg" class="header-icon">
+      </ion-col>
+      <ion-col col-11>
+        <div class="header">Art</div>
+      </ion-col>
+    </ion-row>
+    <event-card [type]="type" *ngFor="let event of events"></event-card>
+  </ion-grid>
+</ion-content>

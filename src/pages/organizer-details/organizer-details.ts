@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OrganizerDetailsPage {
   events : any [] = []
+  type = "event"
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     for (let i = 0; i < 10; i++)
      this.events.push(i)

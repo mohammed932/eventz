@@ -10,17 +10,17 @@
   <ion-grid>
 
     <ion-row class="input-wrapper">
-      <ion-input type="text" placeholder="Email"></ion-input>
+      <ion-input type="text" [(ngModel)]="data.username" placeholder="Email"></ion-input>
       <img src="assets/imgs/mail.svg" class="mail-img">
     </ion-row>
 
     <ion-row class="input-wrapper margin">
-      <ion-input type="password" placeholder="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="data.password" placeholder="password"></ion-input>
       <img src="assets/imgs/locked.svg" class="locked-img">
     </ion-row>
 
     <ion-row>
-      <button class="login-btn" (click)="login()" ion-button color="secondary">Sign In</button>
+      <button (click)="login()" class="login-btn" (click)="login()" ion-button color="secondary">Sign In</button>
     </ion-row>
 
     <ion-row>

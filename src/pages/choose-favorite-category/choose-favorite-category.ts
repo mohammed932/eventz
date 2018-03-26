@@ -7,8 +7,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'choose-favorite-category.html',
 })
 export class ChooseFavoriteCategoryPage {
-
+  cats : any
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.cats = {
+      marketing : false,
+      art : false,
+      softtware : false,
+      science : false,
+      community : false,
+      music : false
+    }
   }
 
   home(){

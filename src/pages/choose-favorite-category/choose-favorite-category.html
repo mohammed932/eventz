@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-buttons end>
-      <button ion-button>
+      <button ion-button class="asd">
         skip
       </button>
     </ion-buttons>
@@ -26,26 +26,32 @@
     <ion-row class="cat-imgs-wrapper">
       <ion-col col-6 class="marginBottom">
         <img src="assets/imgs/marketing.svg" class="cat-img">
+        <ion-checkbox [(ngModel)]="cats.marketing"></ion-checkbox>        
         <span class="cat-title">Marketing</span>
       </ion-col>
       <ion-col col-6 class="marginBottom">
         <img src="assets/imgs/art.svg" class="cat-img">
+        <ion-checkbox [(ngModel)]="cats.art"></ion-checkbox>  
         <span class="cat-title">Art</span>
       </ion-col>
       <ion-col col-6 class="marginBottom">
         <img src="assets/imgs/software.svg" class="cat-img">
+        <ion-checkbox [(ngModel)]="cats.softtware"></ion-checkbox>  
         <span class="cat-title">software</span>
       </ion-col>
       <ion-col col-6 class="marginBottom">
         <img src="assets/imgs/science.svg" class="cat-img">
+        <ion-checkbox [(ngModel)]="cats.science"></ion-checkbox>  
         <span class="cat-title">Science</span>
       </ion-col>
       <ion-col col-6 class="marginBottom">
         <img src="assets/imgs/community.svg" class="cat-img">
+        <ion-checkbox [(ngModel)]="cats.community"></ion-checkbox>  
         <span class="cat-title">Community</span>
       </ion-col>
       <ion-col col-6 class="marginBottom">
         <img src="assets/imgs/music.svg" class="cat-img">
+        <ion-checkbox [(ngModel)]="cats.music"></ion-checkbox>  
         <span class="cat-title">Music</span>
       </ion-col>
     </ion-row>

@@ -1,3 +1,4 @@
+import { NavController } from 'ionic-angular';
 import { Component, Input } from '@angular/core';
 
 
@@ -9,8 +10,12 @@ export class EventCardComponent {
 
   @Input() type
 
-  constructor() {
+  constructor(private navCtrl: NavController ) {
  
+  }
+
+  goToEvent(){
+      this.navCtrl.push('EventDetailsPage')
   }
 
 }

@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>following</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row class="following" *ngFor="let organizer of Organizers">
+    <event-organizer [type]="type" class="organizer-segment" ></event-organizer>
+  </ion-row>
+</ion-content>

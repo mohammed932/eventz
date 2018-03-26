@@ -2,6 +2,11 @@
 
   <ion-navbar>
     <ion-title>offers</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle tappable class="cancel">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <navatigation-buttons class="noti"></navatigation-buttons>
   </ion-navbar>
 
@@ -12,7 +17,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-6 class="offer-col" *ngFor="let offer of Offers">
+      <ion-col col-6 class="offer-col" *ngFor="let offer of Offers" (click)="goToEvent()">
         <div class="offer-wrapper">
           <img src="assets/imgs/event.jpg" class="offer-img">
           <ion-row>

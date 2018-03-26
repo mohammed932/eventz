@@ -1,0 +1,28 @@
+page-user-details {
+    .user-name{
+        font-size: 1.8rem;
+        color: red;
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .user-status{
+        font-size: 1.2rem;
+        color: gray;
+        text-align: center;
+      }
+      .user-avatar{
+        width: 75%;
+        margin: auto;
+        display: block;
+      }
+      .gray{
+          color: gray;
+      }
+      .friend{
+        margin: auto;
+        display: block;
+        width: 50%;
+        background: #2b4b63;
+        margin-top: 2rem;
+      }
+}

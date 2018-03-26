@@ -8,7 +8,7 @@ page-intro {
     .map-marker{
         margin: auto;
         margin-top: 2rem;
-        width: 33%;
+        width: 81%;
     }
     .select-town{
         margin: auto;
@@ -30,4 +30,8 @@ page-intro {
         width: 100%;
         margin-top: 3rem;
     }
+    .ion-ios-arrow-back:before{
+        color: gray
+    }
+    
 }

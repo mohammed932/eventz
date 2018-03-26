@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'event-organizer',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class EventOrganizerComponent {
 
-  text: string;
+  @Input() type
 
   constructor() {
 

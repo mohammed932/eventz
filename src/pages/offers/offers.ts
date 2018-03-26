@@ -15,5 +15,9 @@ export class OffersPage {
      }
   }
 
+  goToEvent(){
+    this.navCtrl.push('EventDetailsPage')
+  }
+
 
 }

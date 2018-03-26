@@ -7,7 +7,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ticket-types.html',
 })
 export class TicketTypesPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

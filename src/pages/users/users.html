@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Users</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid *ngFor="let user of Users" class="user-row" (click)="userDetails()">
+    <app-user></app-user>
+  </ion-grid>
+</ion-content>
