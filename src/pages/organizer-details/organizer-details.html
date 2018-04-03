@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -9,8 +8,9 @@
 
 
 <ion-content>
-  <ion-grid class="grid-wrapper">
-      <event-organizer></event-organizer>
-      <event-card [type]="type" *ngFor="let event of events"></event-card>    
+  <app-loading *ngIf="displayLoading"></app-loading>
+  <ion-grid class="grid-wrapper" *ngIf="!displayLoading">
+    <event-organizer [eventId]="eventId" [organizer]="organizer"></event-organizer>
+    <event-card [type]="type" [event]="event" *ngFor="let event of events"></event-card>
   </ion-grid>
 </ion-content>

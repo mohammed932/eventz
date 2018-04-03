@@ -1,5 +1,7 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../../Models/user.interface';
 
 
 @IonicPage()
@@ -8,12 +10,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'registration.html',
 })
 export class RegistrationPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  User : any
+  constructor(public navCtrl: NavController,
+    private authService : AuthProvider,
+     public navParams: NavParams) {
+    this.User = {
+      username : '',
+      email : '',
+      password: ''
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegistrationPage');
+  createAccount(){
+    console.log('this.user : ',this.User);
+    this.authService.register(this.User).subscribe( data => {
+      if (data.hasOwnProperty('token')){
+        localStorage.setItem('token', data['token'])
+        this.navCtrl.setRoot('HomePage')
+      } 
+      console.log('register data is : ', data);
+    })
   }
 
 }

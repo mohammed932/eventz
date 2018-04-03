@@ -32,8 +32,11 @@
     </ion-row>
   </ion-grid>
 
-  <ion-grid class="grid-wrapper">
-    <event-card [type]="type" *ngFor="let event of events"></event-card>
+  <ion-grid *ngIf="displayLoading">
+      <app-loading></app-loading>
+  </ion-grid>
+  <ion-grid class="grid-wrapper" *ngIf="!displayLoading">
+    <event-card [type]="type" [event]="event" *ngFor="let event of events?.data" (likeOutput)="Like($event)" (eventDetailsOutput)="goToDetails($event)"></event-card>
   </ion-grid>
 
 

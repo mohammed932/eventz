@@ -8,13 +8,13 @@
 <ion-content padding>
   <ion-grid>
     <ion-row class="input-wrapper">
-      <ion-input type="text" placeholder="User Name"></ion-input>
+      <ion-input type="text" [(ngModel)]="User.username" placeholder="User Name"></ion-input>
     </ion-row>
     <ion-row class="input-wrapper">
-      <ion-input type="text" placeholder="Email"></ion-input>
+      <ion-input type="text" [(ngModel)]="User.email" placeholder="Email"></ion-input>
     </ion-row>
     <ion-row class="input-wrapper">
-      <ion-input type="text" placeholder="Password"></ion-input>
+      <ion-input type="text" [(ngModel)]="User.password" placeholder="Password"></ion-input>
     </ion-row>
 
     <ion-row>

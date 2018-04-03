@@ -1,3 +1,4 @@
+import { OrganizerProvider } from './../../providers/organizer/organizer';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -7,10 +8,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'following.html',
 })
 export class FollowingPage {
-  Organizers : any [] = []
-  type : string = 'follower'
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    for (let i = 0; i < 10; i++) this.Organizers.push(i)
+  Organizers: any
+  type: string = 'follower'
+  displayLoading : boolean = true
+  constructor(public navCtrl: NavController,
+    private organizerService: OrganizerProvider,
+    public navParams: NavParams) {
+    this.followedOrganizers()
+  }
+
+
+  followedOrganizers() {
+    this.organizerService.followedOrganizers().subscribe(data => {
+      this.Organizers = data
+      this.displayLoading = false
+      console.log('followed organizers response : ', data);
+    })
   }
 
 }

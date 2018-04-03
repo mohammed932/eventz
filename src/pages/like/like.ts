@@ -1,3 +1,4 @@
+import { EventsProvider } from './../../providers/events/events';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -8,17 +9,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LikePage {
   segmetType: string = 'events'
-  type = "event"
+  type = "likes"
   Organizers: any[] = []
-  Events: any[] = []
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    for (let i = 0; i < 10; i++) {
-      this.Organizers.push(i)
-      this.Events.push(i)
-    }
+  displayLoading : boolean = true
+  Events: any
+  constructor(public navCtrl: NavController, 
+    private eventService : EventsProvider,
+    public navParams: NavParams) {
+    // for (let i = 0; i < 10; i++) {
+    //   this.Organizers.push(i)
+    //   this.Events.push(i)
+    // }
+    this.getLikedEvents()
   }
 
 
+  getLikedEvents(){
+    
+    this.eventService.getLikedEvents().subscribe( data => {
+      this.Events = data
+      this.displayLoading = false
+      console.log('leked events data : ',this.Events);
+    })
+  }
+
+  goToDetails(eventId){
+    console.log('a7a eventId : ',eventId);
+    
+    this.navCtrl.push('EventDetailsPage', { eventId: eventId })
+  }
  
 
 }

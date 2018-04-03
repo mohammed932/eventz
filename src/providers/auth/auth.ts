@@ -11,13 +11,24 @@ export class AuthProvider {
 
   login(params) {
     console.log(params);
-    let _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) }
-    return this.http.post(`${this.URL}/login`, JSON.stringify(params), _options )
+    let data = new FormData()
+    data.append('username', params.username)
+    data.append('password', params.password)
+    // console.log('form data : ',data.getAll('username'));
+    return this.http.post(`${this.URL}/login`, data)
   }
 
-  register(params){
+  register(params) {
     console.log(params);
-    let _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) }
-    return this.http.post(`${this.URL}/register`, JSON.stringify(params), _options )
+    let data = new FormData()
+    data.append('username', params.username)
+    data.append('email', params.email)
+    data.append('password', params.password)
+    return this.http.post(`${this.URL}/register`, data)
+  }
+
+
+  logout() {
+    return this.http.get(`${this.URL}/logout`)
   }
 }

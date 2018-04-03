@@ -8,7 +8,8 @@
 
 
 <ion-content padding>
-  <ion-row class="following" *ngFor="let organizer of Organizers">
-    <event-organizer [type]="type" class="organizer-segment" ></event-organizer>
+  <app-loading *ngIf="displayLoading"></app-loading>
+  <ion-row class="following" *ngIf="!displayLoading">
+    <event-organizer [type]="type" [organizer]="organizer" class="organizer-segment" *ngFor="let organizer of Organizers"></event-organizer>
   </ion-row>
 </ion-content>

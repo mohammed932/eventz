@@ -25,15 +25,15 @@
       <img src="assets/imgs/location.png" class="map-marker">
     </ion-row>
 
-    <ion-row>
+    <!-- <ion-row>
       <ion-select [(ngModel)]="town" class="select-town">
         <ion-option value=-1>Choose Town</ion-option>
         <ion-option value=0>Ryiad</ion-option>
         <ion-option value=1>Gada</ion-option>
       </ion-select>
-    </ion-row>
+    </ion-row> -->
 
-    <ion-row>
+    <ion-row (click)="getUserLocation()">
       <img src="assets/imgs/location-marker.svg" class="location-marker">
       <div class="your-location-txt">Use Your Location</div>
     </ion-row>

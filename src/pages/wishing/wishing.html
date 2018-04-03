@@ -8,25 +8,18 @@
 
 
 <ion-content>
-  <ion-grid class="grid-wrapper">
-    <ion-row>
+  <app-loading *ngIf="displayLoading"></app-loading>
+  <ion-grid class="grid-wrapper" *ngIf="!displayLoading">
+    <ion-row *ngFor="let cat of events">
       <ion-col col-1 align-self-center>
         <img src="assets/imgs/seo-performance-marketing-graphic.svg" class="header-icon">
       </ion-col>
       <ion-col col-11>
-        <div class="header">Marketing</div>
+        <div class="header">{{cat.name}}</div>
+      </ion-col>
+      <ion-col col-12 no-padding *ngFor="let event of cat?.events">
+        <event-card [type]="type" [event]="event"></event-card>
       </ion-col>
     </ion-row>
-    <event-card [type]="type" *ngFor="let event of events"></event-card>
-
-    <ion-row style="margin-top: 1rem;">
-      <ion-col col-1 align-self-center>
-        <img src="assets/imgs/paint-palette.svg" class="header-icon">
-      </ion-col>
-      <ion-col col-11>
-        <div class="header">Art</div>
-      </ion-col>
-    </ion-row>
-    <event-card [type]="type" *ngFor="let event of events"></event-card>
   </ion-grid>
 </ion-content>

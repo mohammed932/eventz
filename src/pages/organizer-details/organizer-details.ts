@@ -1,3 +1,4 @@
+import { OrganizerProvider } from './../../providers/organizer/organizer';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -8,10 +9,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OrganizerDetailsPage {
   events : any [] = []
-  type = "event"
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    for (let i = 0; i < 10; i++)
-     this.events.push(i)
+  type = "likes"
+  organizerId : number
+  eventId : number
+  organizer : any
+  displayLoading : boolean = true
+  constructor(public navCtrl: NavController, 
+    private organizerService : OrganizerProvider,
+    public navParams: NavParams) {
+    this.organizerId = this.navParams.get('organizerId')
+    this.eventId = this.navParams.get('eventId')
+    console.log('this.eventId : ',this.eventId);
+    
+    this.getOrganizerDetails()
+  }
+
+
+  getOrganizerDetails(){
+    this.organizerService.getOrganizerDetails(this.organizerId).subscribe( data =>{
+      this.organizer = data
+      this.events = data['events']
+      this.displayLoading = false
+      console.log('organizer data :',data);
+    })
   }
 
 }

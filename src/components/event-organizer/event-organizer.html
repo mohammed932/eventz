@@ -6,8 +6,9 @@
     <img src="assets/imgs/orgnaizer-img.png" class="custom-org-img">
   </ion-col>
   <ion-col col-8>
-    <h4 class="org-name">Organizer Name</h4>
-    <div class="org-desc gray">hello world hello world hello world hello world hello world hello world </div>
-    <button ion-button round color="primary" class="following" *ngIf="type != 'follower'">Following</button>
+    <h4 class="org-name">{{organizer.name}}</h4>
+    <div class="org-desc gray">{{organizer.brief}}</div>
+    <button ion-button round color="primary" class="following" *ngIf="type != 'follower'  && organizer.followed == '0'" (click)="Follow()">Following</button>
+    <button ion-button round color="danger" class="following" *ngIf="type != 'follower' && organizer.followed == '1' " (click)="unFollow()">unFollow</button>
   </ion-col>
 </ion-row>

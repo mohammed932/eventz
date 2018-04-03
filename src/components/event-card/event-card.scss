@@ -10,6 +10,8 @@ event-card {
        }
        .event-desc{
         margin-top: -0.8rem;
+        height: 52px;
+        overflow: hidden;
        }
        .event-img{
         height: 112.5px;
@@ -31,7 +33,7 @@ event-card {
         display: inline-block;
         font-size: 1rem;
         position: absolute;
-        top: 18%;
+        top: 23%;
         left: 18%;
         color: gray
        }

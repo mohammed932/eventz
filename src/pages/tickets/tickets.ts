@@ -7,7 +7,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tickets.html',
 })
 export class TicketsPage {
-  ticket_type : string
+  ticket_type : string = 'test'
   Tickets : any [] = []
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.ticket_type = this.navParams.get('ticket_type')

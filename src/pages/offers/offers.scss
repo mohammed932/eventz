@@ -37,4 +37,52 @@ page-offers {
         }
         margin-bottom: 1rem;
     }
+
+
+    #burst-12 {
+        background: #fff;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        text-align: center;
+        left: 20px;
+        top: 20px;
+        .old-price{
+            position: relative;
+            z-index: 1;
+            top: 12%;
+            text-decoration: line-through;  
+            color: red;
+            font-weight: 500;          
+        }
+        .price{
+            position: relative;
+            z-index: 1;
+            top: 8%;
+            color: red;
+            font-weight: 500;
+        }
+    }
+    #burst-12:before, #burst-12:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 40px;
+        width: 40px;
+        background: #fff;
+    }
+    #burst-12:before {
+        -webkit-transform: rotate(30deg);
+           -moz-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+             -o-transform: rotate(30deg);
+    }
+    #burst-12:after {
+        -webkit-transform: rotate(60deg);
+           -moz-transform: rotate(60deg);
+            -ms-transform: rotate(60deg);
+             -o-transform: rotate(60deg);
+    }
+    
 }

@@ -5,17 +5,20 @@ import { EventOrganizerComponent } from './event-organizer/event-organizer';
 import { NavatigationButtonsComponent } from './navatigation-buttons/navatigation-buttons';
 import { TabsBottomComponent } from './tabs-bottom/tabs-bottom';
 import { UserComponent } from './user/user';
+import { LoadingComponent } from './loading/loading';
 @NgModule({
 	declarations: [EventCardComponent,
     EventOrganizerComponent,
     NavatigationButtonsComponent,
     TabsBottomComponent,
-    UserComponent],
+    UserComponent,
+    LoadingComponent],
 	imports: [IonicModule],
 	exports: [EventCardComponent,
     EventOrganizerComponent,
     NavatigationButtonsComponent,
     TabsBottomComponent,
-    UserComponent]
+    UserComponent,
+    LoadingComponent]
 })
 export class ComponentsModule {}

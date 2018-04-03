@@ -24,14 +24,26 @@
 
   <div [ngSwitch]="segmetType">
 
-    <ion-grid class="grid1" *ngSwitchCase="'events'">
-      <event-card [type]="type" *ngFor="let event of Events"></event-card>
-    </ion-grid>
+    <ion-row *ngIf="displayLoading">
+      <ion-col text-center>
+        <br/>
+        <ion-spinner></ion-spinner>
+        <p color="gray">جاري التحميل</p>
+      </ion-col>
+    </ion-row>
+
+    <div *ngIf="!displayLoading">
+      <ion-grid class="grid1" *ngSwitchCase="'events'">
+        <event-card [type]="type" [event]="event" (eventDetailsOutput)="goToDetails($event)" *ngFor="let event of Events"></event-card>
+      </ion-grid>
+    </div>
 
 
-    <ion-grid class="grid1" *ngSwitchCase="'organizers'">
+
+    <!-- <ion-grid class="grid1" *ngSwitchCase="'organizers'">
       <event-organizer class="organizer-segment" *ngFor="let organizer of Organizers"></event-organizer>
-    </ion-grid>
+    </ion-grid> -->
 
+    
   </div>
 </ion-content>

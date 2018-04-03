@@ -5,8 +5,8 @@
 
     <ion-buttons end>
       <button ion-button (click)="goToOrgnaizer()">
-        <ion-icon name="md-more"></ion-icon>   
-      </button> 
+        <ion-icon name="md-more"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 
@@ -14,12 +14,21 @@
 
 
 <ion-content>
-  <ion-grid no-padding class="details-grid">
+  <ion-row *ngIf="displayLoading">
+    <ion-col text-center>
+      <br/>
+      <ion-spinner></ion-spinner>
+      <p color="gray">جاري التحميل</p>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-grid no-padding class="details-grid" *ngIf="!displayLoading">
     <ion-row>
       <img src="assets/imgs/event.jpg" class="event-img">
     </ion-row>
     <ion-row>
-      <h6 class="event-desc">Details about event Details about event Details about event Details about event </h6>
+      <h6 class="event-desc" [innerHTML]="adjustSringStyle(eventDetails?.description)"></h6>
     </ion-row>
 
 
@@ -34,8 +43,8 @@
             <img src="assets/imgs/cal-icon.svg" class="icon-img">
           </ion-col>
           <ion-col col-9>
-            <div>Friday , Jannuary 26</div>
-            <div>8:00 PM - 12:00 AM EST</div>
+            <div>{{formatData(eventDetails?.start_date , 0)}}</div>
+            <div>{{formatData(eventDetails?.start_date , 1)}}</div>
           </ion-col>
         </ion-row>
 
@@ -44,8 +53,8 @@
             <img src="assets/imgs/location-pin.svg" class="icon-img">
           </ion-col>
           <ion-col col-9>
-            <div>Saudi Arabia , Riyadh</div>
-            <div>event details about this event</div>
+            <div>{{eventDetails?.venue}}</div>
+            <div>{{eventDetails?.address}}</div>
           </ion-col>
         </ion-row>
 
@@ -54,7 +63,7 @@
             <img src="assets/imgs/money.svg" class="icon-img">
           </ion-col>
           <ion-col col-9>
-            <div>$10</div>
+            <div>${{eventDetails?.price}}</div>
             <div>Om ticket</div>
           </ion-col>
         </ion-row>
@@ -69,16 +78,18 @@
   </ion-grid>
 </ion-content>
 
-<ion-footer>
-  <ion-row class="ticket-row">
+<ion-footer >
+  <ion-row  class="ticket-row">
     <ion-col col-6>
       <button class="ticket-btn" ion-button round color-primary (click)="eventTickets()">Tickets</button>
     </ion-col>
 
     <ion-col col-6>
       <div class="icon-wrapper">
-          <img src="assets/imgs/like.svg" class="footer-icon">
-          <img src="assets/imgs/heart.svg" class="footer-icon">
+          <img src="assets/imgs/like.svg" *ngIf="eventDetails?.liked == '0' " class="footer-icon" (click)="Like(eventDetails.id)">
+        <img src="assets/imgs/thumbs-up-hand-symbol.svg" *ngIf="eventDetails?.liked == '1' " class="footer-icon" (click)="unLike(eventDetails.id)">
+        <img src="assets/imgs/heart.svg" *ngIf="eventDetails?.wishing == '0' " class="footer-icon" (click)="Wish(eventDetails.id)">
+        <img src="assets/imgs/active-heart.svg" *ngIf="eventDetails?.wishing == '1' " class="footer-icon" (click)="unWish(eventDetails.id)">
       </div>
     </ion-col>
   </ion-row>
