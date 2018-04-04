@@ -8,10 +8,13 @@ page-offers {
         width: 16%;
     }
     .heart-img{
-        width: 63%;
-        float: right;
-        margin-right: 0.8rem;
-        margin-top: 1rem;
+        width: 17%;
+        right: 0;
+        top: 11%;
+        position: absolute;
+    }
+    .heart-wrapper{
+        position: relative;
     }
     .start-date{
         display: inline-block;

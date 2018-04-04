@@ -20,4 +20,7 @@ page-registration {
         display: block;
         float: right;
     }
+    .ion-ios-arrow-back:before{
+        color: gray !important;
+    }
 }

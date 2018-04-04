@@ -2,7 +2,7 @@
 
   <ion-navbar>
     <ion-title>home</ion-title>
-    
+
     <ion-buttons start>
       <button ion-button icon-only menuToggle tappable class="cancel">
         <ion-icon name="menu"></ion-icon>
@@ -32,11 +32,12 @@
     </ion-row>
   </ion-grid>
 
-  <ion-grid *ngIf="displayLoading">
-      <app-loading></app-loading>
-  </ion-grid>
+  <app-loading *ngIf="displayLoading"></app-loading>
   <ion-grid class="grid-wrapper" *ngIf="!displayLoading">
-    <event-card [type]="type" [event]="event" *ngFor="let event of events?.data" (likeOutput)="Like($event)" (eventDetailsOutput)="goToDetails($event)"></event-card>
+    <ion-row *ngIf="events?.data.length > 0">
+      <event-card [type]="type" [event]="event" *ngFor="let event of events?.data" (likeOutput)="Like($event)" (eventDetailsOutput)="goToDetails($event)"></event-card>
+    </ion-row>
+    <app-no-result-found *ngIf="events?.data.length == 0"></app-no-result-found>
   </ion-grid>
 
 

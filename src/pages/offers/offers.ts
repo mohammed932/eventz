@@ -1,6 +1,7 @@
+import { EventsProvider } from './../../providers/events/events';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import * as moment from 'moment';
 
 @IonicPage()
 @Component({
@@ -8,16 +9,37 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'offers.html',
 })
 export class OffersPage {
-  Offers  : any [] = []
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-     for (let i = 0; i < 10; i++) {
-       this.Offers.push(i)
-     }
+  Offers  : any
+  displayLoading : boolean = true
+  constructor(public navCtrl: NavController, 
+    private eventService : EventsProvider,
+    public navParams: NavParams) {
+      this.getOffers()
   }
 
-  goToEvent(){
-    this.navCtrl.push('EventDetailsPage')
+  goToEvent(eventId){
+    this.navCtrl.push('EventDetailsPage' , {eventId : eventId})
   }
 
+
+  getOffers(){
+    this.eventService.getOfferEvents().subscribe( data => {
+      console.log('offers : ',data);
+      this.Offers = data
+      this.displayLoading = false
+    })
+  }
+
+
+  formatData(date, status) {
+    let dataString = ``
+    let dayName = moment(date).format('dddd')
+    let monthName = moment(date).format('MMMM')
+    let dayOfMonth = moment(date).format('D')
+    let year = moment(date, "YYYY").year()
+    let amPm = moment(date).format('hh:mm A')
+    if (status == '0') return dataString = `${dayOfMonth} ${monthName} ${year}`
+    else return dataString = `${amPm}`
+  }
 
 }

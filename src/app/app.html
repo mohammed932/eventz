@@ -1,4 +1,4 @@
-<ion-menu [content]="content" side="left">
+<ion-menu [content]="content" *ngIf="platform.dir()=='ltr' " side="left">
 
 
 
@@ -56,9 +56,118 @@
                     <div class="my-item" menuClose (click)="Logout()" tappable>Logout</div>
                 </ion-col>
             </ion-row>
+            <ion-row>
+                <hr class="custom-hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/lang.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="changeLang('ar')" tappable>Arabic</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <hr class="custom-hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/lang.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="changeLang('en')" tappable>English</div>
+                </ion-col>
+            </ion-row>
         </ion-grid>
     </ion-content>
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
+
+
+
+<ion-menu [content]="content" *ngIf="platform.dir()=='rtl' " side="right">
+
+
+    <ion-content class="my-menu">
+        <ion-grid class="menu-grid">
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/like2.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="Like()" tappable>Like</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <hr class="hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/heart-white.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="Wishing()" tappable>Wishing</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <hr class="hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/clock.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="Following()" tappable>Following</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <hr class="custom-hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/users.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="goToUsers()" tappable>Users</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <hr class="custom-hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/logout.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="Logout()" tappable>Logout</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <hr class="custom-hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/lang.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item"  (click)="changeLang('ar')" tappable>Arabic</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <hr class="custom-hr">
+            </ion-row>
+            <ion-row class="icon-row">
+                <ion-col col-2>
+                    <img src="assets/imgs/lang.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item"  (click)="changeLang('en')" tappable>English</div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

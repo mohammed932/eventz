@@ -1,3 +1,4 @@
+import { GeneralProvider } from './../../providers/general/general';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
@@ -9,8 +10,10 @@ import { Storage } from '@ionic/storage'
 })
 export class LoginPage {
   data: any
+  isWaiting: boolean = false
   constructor(public navCtrl: NavController,
     private storage: Storage,
+    private genralService : GeneralProvider,
     private authService: AuthProvider) {
     this.intialization()
   }
@@ -23,14 +26,18 @@ export class LoginPage {
   }
 
   login() {
+    this.isWaiting = true
     this.authService.login(this.data).subscribe(data => {
-      if (data.hasOwnProperty('token')){
-        console.log("my token : ",data['token']);
-        
+      if (data.hasOwnProperty('token')) {
+        console.log("my token : ", data['token']);
         window.localStorage.setItem('token', data['token'])
-        this.storage.set('isLogin',true)
+        this.storage.set('isLogin', true)
         this.navCtrl.setRoot('MainTopTabsPage')
-      } 
+        this.isWaiting = false
+      }
+    }, error => {
+      this.genralService.presentToast(error['error'].error)
+      this.isWaiting = false
     })
   }
 

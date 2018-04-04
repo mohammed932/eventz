@@ -11,11 +11,13 @@
 
 
 <ion-content>
+  <app-loading *ngIf="displayLoading"></app-loading>
 
-  <ion-grid class="grid-wrapper">
-
-    <event-card [type]="ticket_type" *ngFor="let ticket of Tickets"></event-card>
-
+  <ion-grid class="grid-wrapper" *ngIf="!displayLoading">
+    <ion-row *ngIf="Tickets?.length > 0">
+      <event-card [type]="ticket_type" [event]="ticket" *ngFor="let ticket of Tickets"></event-card>
+    </ion-row>
+    <app-no-result-found *ngIf="Tickets?.length == 0"></app-no-result-found>
   </ion-grid>
 
 </ion-content>

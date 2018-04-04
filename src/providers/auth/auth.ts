@@ -31,4 +31,8 @@ export class AuthProvider {
   logout() {
     return this.http.get(`${this.URL}/logout`)
   }
+
+  getUserProfile(){
+    return this.http.get(`${this.URL}/profile`)
+  }
 }

@@ -45,4 +45,9 @@ export class EventsProvider {
     return this.http.get(`${this.URL}/wishing_events`)
   }
 
+  getOfferEvents(){
+    return this.http.get(`${this.URL}/offers`)
+  }
+  
+
 }

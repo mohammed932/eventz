@@ -31,7 +31,7 @@ export class HomePage {
 
   getEvents() {
 
-    this.storage.get('cats').then(cats => {
+    this.storage.get('catIds').then(cats => {
       let params = { type_id: '' }
       if (cats) {
         params = {type_id: cats}

@@ -42,4 +42,7 @@ page-login {
         display: block;
         margin-top: 5rem;
     }
+    .ion-ios-arrow-back:before{
+        color: gray !important;
+    }
 }

@@ -19,7 +19,12 @@
 
     <ion-row>
       <ion-col col-12>
-        <button class="btn marginTop" ion-button outline (click)="createAccount()">Create Account</button>
+        <button class="btn marginTop" ion-button outline (click)="createAccount()">
+          <span *ngIf="!isWaiting"> Create Account </span>
+          <span *ngIf="isWaiting" class="loading-text">
+            <ion-spinner color="light" name="ios-small" class="spinner-location"></ion-spinner>
+          </span>
+        </button>
       </ion-col>
     </ion-row>
 

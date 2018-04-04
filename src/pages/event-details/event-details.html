@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Event Details</ion-title>
+    <ion-title>{{eventDetails?.title}}</ion-title>
 
     <ion-buttons end>
       <button ion-button (click)="goToOrgnaizer()">
@@ -48,7 +48,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-row class="marginTop">
+        <ion-row class="marginTop" (click)="openMap()">
           <ion-col col-3>
             <img src="assets/imgs/location-pin.svg" class="icon-img">
           </ion-col>

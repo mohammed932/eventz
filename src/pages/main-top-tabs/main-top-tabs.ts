@@ -9,9 +9,9 @@ import { IonicPage, NavController } from 'ionic-angular';
 export class MainTopTabsPage {
   tab1Root : string = "HomePage"
   tab2Root : string = "TicketTypesPage"
-  tab3Root : string = "FavoritesPage"
+  // tab3Root : string = "FavoritesPage"
   tab4Root : string = "OffersPage"
-  tab5Root : string = "UserInterestsPage"
+  // tab5Root : string = "UserInterestsPage"
   constructor(public navCtrl: NavController) {
   }
 

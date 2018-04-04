@@ -82,9 +82,9 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://192.168.137.52:8100" />
-    <engine name="android" spec="6.2.3" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.0" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To Locate You and suggest events which near from you" />
     </plugin>
+    <engine name="android" spec="6.2.3" />
 </widget>

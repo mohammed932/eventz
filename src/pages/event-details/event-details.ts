@@ -38,7 +38,11 @@ export class EventDetailsPage {
   }
 
   eventTickets() {
-    this.navCtrl.push('EventTicketsPage')
+    let eventData = {
+      eventName : this.eventDetails.title,
+      eventId : this.eventDetails.id
+    }
+    this.navCtrl.push('EventTicketsPage' , {eventData})
   }
 
 
@@ -91,5 +95,14 @@ export class EventDetailsPage {
         this.eventDetails.wishing = 0
       }
     })
+  }
+
+
+  openMap(){
+    let lanLng = {
+      lat : this.eventDetails.location_lat,
+      lng : this.eventDetails.location_long
+    }
+    this.navCtrl.push('MapPage',{lanLng})
   }
 }

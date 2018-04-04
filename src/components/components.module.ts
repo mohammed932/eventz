@@ -6,19 +6,22 @@ import { NavatigationButtonsComponent } from './navatigation-buttons/navatigatio
 import { TabsBottomComponent } from './tabs-bottom/tabs-bottom';
 import { UserComponent } from './user/user';
 import { LoadingComponent } from './loading/loading';
+import { NoResultFoundComponent } from './no-result-found/no-result-found';
 @NgModule({
 	declarations: [EventCardComponent,
     EventOrganizerComponent,
     NavatigationButtonsComponent,
     TabsBottomComponent,
     UserComponent,
-    LoadingComponent],
+    LoadingComponent,
+    NoResultFoundComponent],
 	imports: [IonicModule],
 	exports: [EventCardComponent,
     EventOrganizerComponent,
     NavatigationButtonsComponent,
     TabsBottomComponent,
     UserComponent,
-    LoadingComponent]
+    LoadingComponent,
+    NoResultFoundComponent]
 })
 export class ComponentsModule {}

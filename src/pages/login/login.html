@@ -20,7 +20,12 @@
     </ion-row>
 
     <ion-row>
-      <button  class="login-btn" (click)="login()" ion-button color="secondary">Sign In</button>
+      <button class="login-btn" (click)="login()" ion-button color="secondary">
+        <span *ngIf="!isWaiting"> Sign In </span>
+        <span *ngIf="isWaiting" class="loading-text">
+          <ion-spinner color="light" name="ios-small" class="spinner-location"></ion-spinner>
+        </span>
+      </button>
     </ion-row>
 
     <ion-row>

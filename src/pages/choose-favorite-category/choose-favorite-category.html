@@ -18,14 +18,15 @@
 
 
 <ion-content padding>
-  <ion-grid>
+  <app-loading *ngIf="displayLoading"></app-loading>
+  <ion-grid *ngIf="!displayLoading">
     <ion-row>
       <div class="cat-header">Categories</div>
     </ion-row>
-
+    
     <ion-row class="cat-imgs-wrapper">
       <ion-col col-6 class="marginBottom" *ngFor="let cat of Cats">
-        <img src="assets/imgs/marketing.svg" class="cat-img">
+        <img src="assets/imgs/community.svg" class="cat-img">
         <ion-checkbox [(ngModel)]="cat.checked" (ionChange)="onChange(cat.id, $event.checked)"></ion-checkbox>        
         <span class="cat-title">{{cat.name}}</span>
       </ion-col>
@@ -61,7 +62,7 @@
        <button ion-button color="secondary" class="my-btn" tappable (click)="home()">Next</button>
       </ion-col>
       <ion-col col-6>
-        <button ion-button color="danger" class="my-btn" tappable>Select All</button>
+        <button ion-button color="danger" class="my-btn" tappable (click)="selectAll()">Select All</button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -16,29 +16,27 @@
 <ion-content>
 
   <ion-grid>
-    <ion-row>
-      <ion-col col-6 class="offer-col" *ngFor="let offer of Offers" (click)="goToEvent()">
+    <app-loading *ngIf="displayLoading"></app-loading>
+    <ion-row *ngIf="!displayLoading">
+      <ion-col col-6 class="offer-col" *ngFor="let offer of Offers" (click)="goToEvent(offer.event_id)">
         <div class="offer-wrapper">
-            <div id="burst-12">
-              <div class="old-price">$700</div>
-              <div class="price">$600</div>
-            </div>
+          <div id="burst-12">
+            <div class="old-price">${{offer.price}}</div>
+            <div class="price">${{offer.offer_price}}</div>
+          </div>
           <img src="assets/imgs/event.jpg" class="offer-img">
-          <ion-row>
-            <ion-col col-9 no-padding>
-              <h2 class="event-title">Name Of event</h2>
+          <ion-row class="heart-wrapper">
+            <ion-col col-13 no-padding>
+              <h2 class="event-title">{{offer.event_title}}</h2>
               <div>
                 <img src="assets/imgs/calendar.svg" class="calender">
-                
               </div>
-              
+
               <div class="start-date">
-                15 sep 1982 - 5:32
+                {{formatData(offer.start_date , 0)}} - {{formatData(offer.start_date , 1)}}
               </div>
             </ion-col>
-            <ion-col col-3 no-padding>
-              <img src="assets/imgs/heart.svg" class="heart-img">
-            </ion-col>
+            <img src="assets/imgs/heart.svg" class="heart-img">
           </ion-row>
         </div>
       </ion-col>
