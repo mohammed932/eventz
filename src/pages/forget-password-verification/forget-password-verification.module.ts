@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { EventTicketsPage } from './event-tickets';
+import { ForgetPasswordVerificationPage } from './forget-password-verification';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
-    EventTicketsPage,
+    ForgetPasswordVerificationPage,
   ],
   imports: [
-    IonicPageModule.forChild(EventTicketsPage),
+    IonicPageModule.forChild(ForgetPasswordVerificationPage),
     ComponentsModule
   ],
 })
-export class EventTicketsPageModule {}
+export class ForgetPasswordVerificationPageModule {}

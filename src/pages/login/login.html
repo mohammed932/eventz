@@ -22,9 +22,7 @@
     <ion-row>
       <button class="login-btn" (click)="login()" ion-button color="secondary">
         <span *ngIf="!isWaiting"> Sign In </span>
-        <span *ngIf="isWaiting" class="loading-text">
-          <ion-spinner color="light" name="ios-small" class="spinner-location"></ion-spinner>
-        </span>
+        <app-loading-btn *ngIf="isWaiting"></app-loading-btn>
       </button>
     </ion-row>
 
@@ -39,7 +37,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row (click)="forgetPassword()">
       <ion-col col-12>
         <div text-center class="forget-password">forget Password?</div>
       </ion-col>

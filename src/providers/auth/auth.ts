@@ -4,9 +4,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthProvider {
-  private URL: any;
+  private URL = this.settingService.globalLink
   constructor(public http: HttpClient, private settingService: SettingProvider) {
-    this.URL = this.settingService.globalLink
   }
 
   login(params) {
@@ -32,7 +31,24 @@ export class AuthProvider {
     return this.http.get(`${this.URL}/logout`)
   }
 
-  getUserProfile(){
+  getUserProfile() {
     return this.http.get(`${this.URL}/profile`)
+  }
+
+  forgetPassword(email) {
+    let data = new FormData()
+    data.append('email', email)
+    return this.http.post(`${this.URL}/forgot_password`, data)
+  }
+  resetPassword(params) {
+    let data = new FormData()
+    data.append('email', params.email)
+    data.append('code', params.code)
+    data.append('password', params.password)
+    return this.http.post(`${this.URL}/reset_password`, data)
+  }
+
+  refreshToken() {
+    this.http.get(`${this.URL}/refresh_token`)
   }
 }

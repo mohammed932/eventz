@@ -44,7 +44,9 @@ export class ChooseFavoriteCategoryPage {
 
   getEventsType() {
     this.eventService.getEventsType().subscribe(data => {
-      if (this.Cats.length === 0) this.Cats = data
+      if (this.Cats == undefined){
+        this.Cats = data
+      } 
       this.displayLoading = false
     })
 

@@ -1,7 +1,7 @@
 import { GeneralProvider } from './../../providers/general/general';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage'
 @IonicPage()
 @Component({
@@ -13,6 +13,8 @@ export class LoginPage {
   isWaiting: boolean = false
   constructor(public navCtrl: NavController,
     private storage: Storage,
+    private event : Events,
+    private modalCtrl : ModalController,
     private genralService : GeneralProvider,
     private authService: AuthProvider) {
     this.intialization()
@@ -29,9 +31,10 @@ export class LoginPage {
     this.isWaiting = true
     this.authService.login(this.data).subscribe(data => {
       if (data.hasOwnProperty('token')) {
-        console.log("my token : ", data['token']);
         window.localStorage.setItem('token', data['token'])
+        this.event.publish('Login:success')
         this.storage.set('isLogin', true)
+        this.storage.set('isVisitor', false)
         this.navCtrl.setRoot('MainTopTabsPage')
         this.isWaiting = false
       }
@@ -41,6 +44,10 @@ export class LoginPage {
     })
   }
 
+
+  forgetPassword(){
+    this.modalCtrl.create('ForgetPasswordPage').present()
+  }
 
 
 }

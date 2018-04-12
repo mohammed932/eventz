@@ -10,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class HomePage {
   events: any
   type = "event"
-  displayLoading : boolean = true
+  displayLoading: boolean = true
   data: any
   constructor(public navCtrl: NavController,
     private eventService: EventsProvider,
@@ -30,19 +30,22 @@ export class HomePage {
 
 
   getEvents() {
-
     this.storage.get('catIds').then(cats => {
-      let params = { type_id: '' }
-      if (cats) {
-        params = {type_id: cats}
-      }
+      let params = {};
+      params['type_id'] =  '' 
+      if (cats) params = { type_id: cats }
+      if(localStorage.getItem('country') != 'undefined') 
+         params['country_id'] = localStorage.getItem('country')
+      if(localStorage.getItem('city') != 'undefined') 
+         params['city_id'] = localStorage.getItem('city')
+      console.log('paramsparams : ',params);
+      
       this.eventService.getEvents(params).subscribe(data => {
         console.log("events data : ", data);
         this.events = data
         this.displayLoading = false
       })
     })
-
   }
 
   goToDetails(eventId) {

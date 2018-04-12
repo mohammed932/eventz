@@ -8,24 +8,27 @@
 
 
 <ion-content padding>
+  <app-loading *ngIf="displayLoading"></app-loading>
+  <div *ngIf="!displayLoading">
+    <ion-grid class="ticket-grid" *ngFor="let ticket of Tickets">
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="event-title red">{{eventData.eventName}}</h4>
+          <h6 class="ticket-type blue">{{ticket.type}}</h6>
+          <h6 class="dollar">${{ticket.price}}</h6>
+          <h6 class="details gray">{{ticket.details}}</h6>
+        </ion-col>
 
-  <ion-grid class="ticket-grid" *ngFor="let ticket of Tickets">
-    <ion-row>
-      <ion-col col-12>
-        <h4 class="event-title red">{{eventData.eventName}}</h4>
-        <h6 class="ticket-type blue">{{ticket.type}}</h6>
-        <h6 class="dollar">${{ticket.price}}</h6>
-        <h6 class="details gray">{{ticket.details}}</h6>
-      </ion-col>
+        <ion-col col-8>
+          <img src="assets/imgs/calendar.svg" class="calender">
+          <div class="start-date">{{generalService.formatData(ticket.date , 0)}} - {{generalService.formatData(ticket.date , 1)}}</div>
+        </ion-col>
+        <ion-col col-4 class="pay-col">
+          <button ion-button round color="danger" class="pay-btn">Pay</button>
+        </ion-col>
 
-      <ion-col col-8>
-        <img src="assets/imgs/calendar.svg" class="calender">
-        <div class="start-date">{{formatData(ticket.date , 0)}} - {{formatData(ticket.date , 1)}}</div>
-      </ion-col>
-      <ion-col col-4 class="pay-col">
-        <button ion-button round color="danger" class="pay-btn">Pay</button>
-      </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
-    </ion-row>
-  </ion-grid>
 </ion-content>

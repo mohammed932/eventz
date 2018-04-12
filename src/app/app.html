@@ -1,4 +1,4 @@
-<ion-menu [content]="content" *ngIf="platform.dir()=='ltr' " side="left">
+<ion-menu [content]="content"  side="left">
 
 
 
@@ -48,7 +48,7 @@
             <ion-row>
                 <hr class="custom-hr">
             </ion-row>
-            <ion-row class="icon-row">
+            <ion-row class="icon-row" *ngIf="!isVisitor && isLogin">
                 <ion-col col-2>
                     <img src="assets/imgs/logout.svg" class="menu-icon-img">
                 </ion-col>
@@ -56,7 +56,18 @@
                     <div class="my-item" menuClose (click)="Logout()" tappable>Logout</div>
                 </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="!isVisitor && isLogin">
+                <hr class="custom-hr">
+            </ion-row>
+            <ion-row class="icon-row" *ngIf="!isLogin">
+                <ion-col col-2>
+                    <img src="assets/imgs/logout.svg" class="menu-icon-img">
+                </ion-col>
+                <ion-col align-self-center col-10 class="col-bottom">
+                    <div class="my-item" menuClose (click)="Login()" tappable>Login</div>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="!isLogin">
                 <hr class="custom-hr">
             </ion-row>
             <ion-row class="icon-row">
@@ -86,12 +97,12 @@
 
 
 
-<ion-menu [content]="content" *ngIf="platform.dir()=='rtl' " side="right">
+<ion-menu [content]="content"  side="right">
 
 
     <ion-content class="my-menu">
         <ion-grid class="menu-grid">
-            <ion-row class="icon-row">
+            <ion-row class="icon-row" *ngIf="isLogin">
                 <ion-col col-2>
                     <img src="assets/imgs/like2.svg" class="menu-icon-img">
                 </ion-col>
@@ -102,7 +113,7 @@
             <ion-row>
                 <hr class="hr">
             </ion-row>
-            <ion-row class="icon-row">
+            <ion-row class="icon-row" *ngIf="isLogin">
                 <ion-col col-2>
                     <img src="assets/imgs/heart-white.svg" class="menu-icon-img">
                 </ion-col>
@@ -113,7 +124,7 @@
             <ion-row>
                 <hr class="hr">
             </ion-row>
-            <ion-row class="icon-row">
+            <ion-row class="icon-row" *ngIf="isLogin">
                 <ion-col col-2>
                     <img src="assets/imgs/clock.svg" class="menu-icon-img">
                 </ion-col>

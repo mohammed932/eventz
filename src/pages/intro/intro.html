@@ -25,13 +25,17 @@
       <img src="assets/imgs/location.png" class="map-marker">
     </ion-row>
 
-    <!-- <ion-row>
-      <ion-select [(ngModel)]="town" class="select-town">
-        <ion-option value=-1>Choose Town</ion-option>
-        <ion-option value=0>Ryiad</ion-option>
-        <ion-option value=1>Gada</ion-option>
+    <ion-row>
+      <ion-select [(ngModel)]="data.country" placeholder="Choose Country" (ionChange)="getCities(data.country)" class="select-town">
+        <ion-option value={{country.id}} *ngFor="let country of Countries">{{country.name}}</ion-option>
       </ion-select>
-    </ion-row> -->
+    </ion-row>
+
+    <ion-row>
+      <ion-select [(ngModel)]="data.city" placeholder="Choose City" class="select-city">
+        <ion-option value={{city.id}} *ngFor="let city of Cities">{{city.name}}</ion-option>
+      </ion-select>
+    </ion-row>
 
     <ion-row (click)="getUserLocation()">
       <img src="assets/imgs/location-marker.svg" class="location-marker">

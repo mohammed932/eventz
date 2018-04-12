@@ -1,0 +1,4 @@
+
+
+<img src="assets/imgs/heart.svg" *ngIf="event.wishing == '0' " class="heart-img" (click)="Wish(event.id)">
+<img src="assets/imgs/active-heart.svg" *ngIf="event.wishing == '1' " class="heart-img" (click)="unWish(event.id)">

@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-searchbar [(ngModel)]="myInput" animated="true" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+    <ion-buttons start>
+      <button class="asd" ion-button (click)="dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+</ion-content>

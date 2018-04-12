@@ -1,3 +1,4 @@
+import { GeneralProvider } from './../../providers/general/general';
 import { EventsProvider } from './../../providers/events/events';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -13,6 +14,7 @@ export class OffersPage {
   displayLoading : boolean = true
   constructor(public navCtrl: NavController, 
     private eventService : EventsProvider,
+    private generalService : GeneralProvider,
     public navParams: NavParams) {
       this.getOffers()
   }
@@ -28,18 +30,6 @@ export class OffersPage {
       this.Offers = data
       this.displayLoading = false
     })
-  }
-
-
-  formatData(date, status) {
-    let dataString = ``
-    let dayName = moment(date).format('dddd')
-    let monthName = moment(date).format('MMMM')
-    let dayOfMonth = moment(date).format('D')
-    let year = moment(date, "YYYY").year()
-    let amPm = moment(date).format('hh:mm A')
-    if (status == '0') return dataString = `${dayOfMonth} ${monthName} ${year}`
-    else return dataString = `${amPm}`
   }
 
 }

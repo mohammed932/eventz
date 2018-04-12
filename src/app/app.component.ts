@@ -1,6 +1,7 @@
+import { GeneralProvider } from './../providers/general/general';
 import { Storage } from '@ionic/storage'
 import { Component, ViewChild } from '@angular/core'
-import { Platform, Nav, MenuController } from 'ionic-angular'
+import { Platform, Nav, MenuController, Events } from 'ionic-angular'
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 import { AuthProvider } from '../providers/auth/auth';
@@ -9,7 +10,9 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: string = ''
+  rootPage: string = 'IntroPage'
+  isLogin: boolean = false
+  isVisitor: boolean = false
   @ViewChild(Nav) nav: Nav
   constructor(
     private platform: Platform,
@@ -17,11 +20,21 @@ export class MyApp {
     private authService: AuthProvider,
     private menuCtrl: MenuController,
     private statusBar: StatusBar,
+    private event: Events,
+    private genralService: GeneralProvider,
     private translate: TranslateService,
     private splashScreen: SplashScreen) {
-    this.checkLogin()
     this.intializeApp()
+    this.checkLogin()
+    this.checkVisitor()
+
+    this.event.subscribe('Login:success', () => {
+      console.log("login success");
+      this.isVisitor = false
+      this.isLogin = true
+    })
   }
+
 
 
   intializeApp() {
@@ -31,18 +44,22 @@ export class MyApp {
       /**
        * intialize translation section.
        */
-      // this.translate.addLangs(["en", "ar"]);
-      // this.translate.setDefaultLang('en');
-      // this.platform.setLang('en', true)
-      // this.platform.setDir('ltr', true);
+      this.translate.addLangs(["en", "ar"]);
+      this.translate.setDefaultLang('en');
+      this.platform.setLang('en', true)
+      this.platform.setDir('ltr', true);
       // let browserLang = this.translate.getBrowserLang();
-      // this.translate.use('en');
+      this.translate.use('en');
     })
 
   }
 
-  Like() {
-    this.nav.push('LikePage')
+  async Like() {
+    if (await this.storage.get('isLogin')) {
+      this.nav.push('LikePage')
+    } else {
+      this.genralService.showAlert('You must login first')
+    }
   }
 
   Wishing() {
@@ -68,28 +85,25 @@ export class MyApp {
     })
   }
 
-  checkLogin() {
-    this.storage.get('isLogin').then(isLogin => {
-      if (isLogin) this.rootPage = 'MainTopTabsPage'
-      else this.rootPage = 'IntroPage'
-    })
+  async checkLogin() {
+    let isLogin = await this.storage.get('isLogin')
+    console.log('my isLoginisLogin : ', isLogin);
+    if (isLogin) {
+      this.isLogin = true
+      // this.rootPage = 'MainTopTabsPage'
+    }
+    else {
+      // this.rootPage = 'IntroPage'
+    }
   }
-
 
   changeLang(langCode) {
     if (langCode == 'ar') {
       this.platform.setDir("rtl", true);
-      console.log('platform.dir() : ',this.platform.dir());
+      this.menuCtrl.enable(true, 'right-menu');
+      this.menuCtrl.enable(false, 'left-menu');
+      this.menuCtrl.toggle('right');
       this.translate.use(langCode);
-      this.platform.setLang('ar',true);
-      this.splashScreen.show()
-      // window.location.reload()
-      this.splashScreen.hide()
-      // this.platform.setDir("rtl", true);
-      // this.menuCtrl.enable(true, 'right-menu');
-      // this.menuCtrl.enable(false, 'left-menu');
-      // this.menuCtrl.toggle('right');
-      // this.translate.use(langCode);
     } else if (langCode == 'en') {
       this.platform.setDir("ltr", true);
       this.menuCtrl.enable(false, 'left-menu');
@@ -99,6 +113,18 @@ export class MyApp {
     }
   }
 
+  checkVisitor() {
+    this.storage.get('isVisitor').then(isVisitor => {
+      console.log('checkVisitor : ', isVisitor);
+
+      if (isVisitor) {
+        this.isVisitor = true
+      }
+    })
+  }
+
+  Login() {
+    this.nav.setRoot('RegistrationMethodsPage')
+  }
 
 }
-

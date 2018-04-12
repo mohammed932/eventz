@@ -11,13 +11,13 @@ page-intro {
         margin-top: 2rem;
         width: 60%;
     }
-    .select-town{
+    .select-town , .select-city{
         margin: auto;
         margin-bottom: 2rem;
         width: 90%;
         border: 1px solid #cb1f1f;
-        margin-top: -1rem;
         max-width: 100%;
+        margin-top: 1rem;
     }
     .location-marker{
         width: 20%;
@@ -33,6 +33,14 @@ page-intro {
     }
     .ion-ios-arrow-back:before{
         color: gray
+    }
+    .item-cover{
+        left: inherit;
+        top: inherit;
+        position: relative;
+        width: auto;
+        height: inherit;
+        background: transparent;
     }
     
 }

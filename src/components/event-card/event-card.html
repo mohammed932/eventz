@@ -1,47 +1,26 @@
-<ion-row class="event-wrapper" >
+<ion-row class="event-wrapper">
   <ion-col col-4 class="event-img-col" (click)="goToEvent()">
     <img src="assets/imgs/event.jpg" class="event-img">
   </ion-col>
   <ion-col col-8>
 
-   
 
-    <h2 class="event-title" (click)="goToEvent()" *ngIf="type != 'free' ">{{event.title}}</h2>
-    <h2 class="event-title" (click)="goToEvent()" *ngIf="type == 'free' ">{{event.event_title}}</h2>
+    <h2 class="event-title" (click)="goToEvent()">{{ getEventTitle(event)}}</h2>
     <h6 class="ticket-type blue" *ngIf="type =='ticketsCart'">Ticket Type</h6>
     <h6 class="dollar" *ngIf="type =='ticketsCart'">$70</h6>
 
-
-    <div class="event-desc" 
-    *ngIf="type =='event' 
-    || type == 'myTickets' 
-    || type == 'notification'" >
-      <div [innerHTML]="sliceString(adjustSringStyle(event.description))"></div>
-    </div>
-    <div class="event-desc" *ngIf="type =='likes' " >
-      <div [innerHTML]="sliceString(adjustSringStyle(event.brief))"></div>
-    </div>
-
-    <div class="event-desc" *ngIf="type =='free' " >
-      <div [innerHTML]="sliceString(adjustSringStyle(event.details))"></div>
-    </div>
-
-
-    <ion-row no-padding class="calender-heart-wrapper" [style.margin-top.rem] = "type === 'free' ? '1,5' : '0.5'" >
+    <app-event-description [event]="event"></app-event-description>
+    
+    <ion-row no-padding class="calender-heart-wrapper" [style.margin-top.rem]="type === 'free' ? '1,5' : '0.5'">
       <ion-col col-8 no-padding align-self-end>
         <img src="assets/imgs/calendar.svg" class="calender">
-        <div class="start-date" [class.customLeft]="type == 'ticketsCart'" *ngIf="type != 'free'">{{formatData(event.start_date , 0)}} - {{formatData(event.start_date , 1)}}</div>
-        <div class="start-date"  *ngIf="type == 'free'">{{formatData(event.date , 0)}} - {{formatData(event.date , 1)}}</div>
+        <div class="start-date" [class.customLeft]="type == 'ticketsCart'" *ngIf="type != 'free'">{{genralService.formatData(event.start_date , 0)}} - {{genralService.formatData(event.start_date , 1)}}</div>
+        <div class="start-date" *ngIf="type == 'free'">{{genralService.formatData(event.date , 0)}} - {{genralService.formatData(event.date , 1)}}</div>
       </ion-col>
       <ion-col col-4 no-padding align-self-end>
-        <div *ngIf="type == 'myTickets' ">
-          <div class="ticket-number">5</div>
-          <div class="ticket-txt">Tickets</div>
-          <div class="ticket-price">$150</div>
-        </div>
+        <app-tickets-count *ngIf="type == 'myTickets' "></app-tickets-count>
         <button ion-button round color="danger" *ngIf="type =='ticketsCart'" class="pay-btn">Pay</button>
-        <img src="assets/imgs/heart.svg" *ngIf=" (type =='event' || type == 'free' || type == 'likes') && event.wishing == '0' " class="heart-img" (click)="Wish(event.id)">
-        <img src="assets/imgs/active-heart.svg" *ngIf=" (type =='event' || type == 'free' || type == 'likes') && event.wishing == '1' " class="heart-img" (click)="unWish(event.id)">
+        <app-wishing-btns [event]="event"></app-wishing-btns>
       </ion-col>
     </ion-row>
 

@@ -16,6 +16,7 @@ import { OrganizerProvider } from '../providers/organizer/organizer';
 import { GeneralProvider } from '../providers/general/general';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TicketsProvider } from '../providers/tickets/tickets';
+import { MetaProvider } from '../providers/meta/meta';
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
 }
@@ -58,7 +59,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     EventsProvider,
     OrganizerProvider,
     GeneralProvider,
-    TicketsProvider
+    TicketsProvider,
+    MetaProvider
   ]
 })
 export class AppModule { }

@@ -10,11 +10,10 @@ declare var google;
 })
 export class MapPage {
   @ViewChild('map') mapElement: ElementRef;
-  map: any;
-  lanLng : any
+  lanLng: any
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.lanLng = this.navParams.get('lanLng')
-    console.log('this.lanLng : ',this.lanLng);
+    console.log('this.lanLng : ', this.lanLng);
   }
 
   ionViewDidLoad() {
@@ -30,8 +29,15 @@ export class MapPage {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    let map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    this.addMarker(latLng, map)
+  }
 
+  addMarker(position, map) {
+    return new google.maps.Marker({
+      position,
+      map
+    })
   }
 
 }

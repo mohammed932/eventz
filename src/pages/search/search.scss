@@ -1,0 +1,21 @@
+page-search {
+    .toolbar-background{
+        // background: white;
+    }
+    .searchbar{
+        padding: 0;
+        min-height: 100%;
+        width: 97%;
+        float: right;
+    }
+    .toolbar .searchbar{
+        background: white;
+    }
+    .searchbar .searchbar-input{
+        border-radius: 0;
+        background: white !important;
+    }
+    .ion-ios-arrow-back:before{
+        font-size: 3.3rem;
+    }
+}
